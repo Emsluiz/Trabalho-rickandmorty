@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000000, #4B0082); /* preto → roxo escuro */
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  #paginate {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  #paginate button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  #content a {
+    color: white;
+    text-decoration: none;
+  }
+
+    #content a:hover {
+        text-decoration: underline;
+        color: #ccccff; 
+    }
+
+    #content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;            
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #content li {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 10px;
+        width: 150px;             
+        text-align: center;
+        box-sizing: border-box;
+
+    }
+
+    #content img {
+        width: 100%;
+        border-radius: 5px;
+      }
+      
+      #content a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      
+      @media (max-width: 500px) {
+        #content li {
+          width: 100px;
+        }
+      }
+
+      /* Estilo do título principal */
+h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 48px;
+    color: #00ffff;
+    text-align: center;
+    margin: 30px 0;
+  
+    /* Efeito de brilho */
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+  }
+  
+  /* Animação do brilho pulsante */
+  @keyframes neonGlow {
+    from {
+      text-shadow:
+        0 0 5px #0ff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
+    }
+    to {
+      text-shadow:
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 30px #0ff,
+        0 0 60px #0ff;
+    }
+  }
+  
