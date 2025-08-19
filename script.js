@@ -1,55 +1,43 @@
 const content = document.getElementById('content');
-let page = Number(window.location.hash.replace("#", ""))
-let maxpage = 0
+const paginateDiv = document.getElementById('paginate'); // corrigi o id para 'paginate' que tá no HTML
+let page = Number(window.location.hash.replace("#", ""));
+let maxpage = 0;
 
 async function getCharacters() {
-
+  content.innerHTML = ''; // limpa antes de carregar
+  
   const response =
-    await fetch(`https://rickandmortyapi.com/api/character${isNaN(page) ? '' : '?page=' + page}`)
-  const data = await response.json()
-  maxpage = data.info.pages
-  const lista = document.createElement('ul')
-  let characters = ''
+    await fetch(`https://rickandmortyapi.com/api/character${isNaN(page) || page < 1 ? '' : '?page=' + page}`);
+  const data = await response.json();
+  maxpage = data.info.pages;
+  const lista = document.createElement('ul');
+  let characters = '';
   data.results.forEach(element => {
     characters += `<li>
-    <a href="detail.html#${element.id}">
-      ${element.name}
-      <br />
-      <img src="${element.image}" alt="${element.name}"/>
-    </a>
-  </li>`
-  
+      <a href="detail.html#${element.id}">
+        ${element.name}
+        <br />
+        <img src="${element.image}" alt="${element.name}"/>
+      </a>
+    </li>`;
   });
-  lista.innerHTML = characters
-  content.appendChild(lista)
+  lista.innerHTML = characters;
+  content.appendChild(lista);
 
-  let paginate
-  if (!page || page === 1) {
-    paginate = ` <button id="next" onClick="next()" >Proximo</button>`
+  // Criar botão Próximo (se não for a última página)
+  paginateDiv.innerHTML = '';
+  if (!page || page < maxpage) {
+    const btnNext = document.createElement('button');
+    btnNext.textContent = 'Próximo';
+    btnNext.onclick = next;
+    paginateDiv.appendChild(btnNext);
   }
-  if (page > 1 && page < maxpage) {
-    paginate = ` <button id="prev" onClick="prev()">Anterior</button>
-    <button id="next" onClick="next()">Proximo</button>
-    `
-  }
-  if (page >= maxpage) {
-    paginate = ` <button id="prev" onClick="prev()">Anterior</button>`
-  }
-
-
-
-  document.getElementById('pagina').innerHTML = paginate
 }
-getCharacters()
 
+getCharacters();
 
 async function next() {
-  const newPage = page === 0 ? 2 : page + 1
-  window.location.hash = "#" + newPage
-  window.location.reload()
-}
-function prev() {
-  const newPage = page === 0 ? 2 : page - 1
-  window.location.hash = "#" + newPage
-  window.location.reload()
+  const newPage = (!page || page < 1) ? 2 : page + 1;
+  window.location.hash = "#" + newPage;
+  window.location.reload();
 }
