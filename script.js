@@ -1,10 +1,10 @@
 const content = document.getElementById('content');
-const paginateDiv = document.getElementById('paginate'); // corrigi o id para 'paginate' que tá no HTML
+const paginateDiv = document.getElementById('paginate');
 let page = Number(window.location.hash.replace("#", ""));
 let maxpage = 0;
 
 async function getCharacters() {
-  content.innerHTML = ''; // limpa antes de carregar
+  content.innerHTML = '';
   
   const response =
     await fetch(`https://rickandmortyapi.com/api/character${isNaN(page) || page < 1 ? '' : '?page=' + page}`);
