@@ -17,7 +17,7 @@ async function getCharacterDetail() {
       <li><strong>Dimensão:</strong> ${locationData.dimension || "Desconhecida"}</li>
       <li><strong>Status:</strong> ${data.status}</li>
     </ul>
-    <a href="index.html">Voltar à lista</a>
+    <a href="index.html">Voltar</a>
   `;
 
   content.innerHTML = detailHTML;
