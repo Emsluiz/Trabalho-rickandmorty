@@ -24,7 +24,6 @@ async function getCharacters() {
   lista.innerHTML = characters;
   content.appendChild(lista);
 
-  // Criar botão Próximo (se não for a última página)
   paginateDiv.innerHTML = '';
   if (!page || page < maxpage) {
     const btnNext = document.createElement('button');

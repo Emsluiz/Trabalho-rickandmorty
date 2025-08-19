@@ -22,5 +22,4 @@ async function getCharacterDetail() {
 
   content.innerHTML = detailHTML;
 }
-
 getCharacterDetail();
