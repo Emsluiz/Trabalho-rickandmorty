@@ -25,7 +25,6 @@ async function getCharacters() {
   lista.innerHTML = characters;
   content.appendChild(lista);
 
-  // Criar botões "Voltar" e "Próximo"
   paginateDiv.innerHTML = '';
 
   if (page > 1) {
