@@ -69,7 +69,6 @@ body {
         }
       }
 
-      /* Estilo do título principal */
 h1 {
     font-family: 'Creepster', cursive;
     font-size: 48px;
@@ -77,7 +76,6 @@ h1 {
     text-align: center;
     margin: 30px 0;
   
-    /* Efeito de brilho */
     text-shadow:
       0 0 5px #0ff,
       0 0 10px #0ff,
@@ -86,7 +84,6 @@ h1 {
     animation: neonGlow 1.5s ease-in-out infinite alternate;
   }
   
-  /* Animação do brilho pulsante */
   @keyframes neonGlow {
     from {
       text-shadow:
